@@ -1,0 +1,10 @@
+#!/bin/sh
+cd Magick4J
+ant compile && ant jar
+cd ..
+rake
+cd RMagick4J
+rake package
+cd pkg
+jruby -S gem uninstall rmagick4j
+jruby -S gem install rmagick4j-0.3.6.gem --no-ri --no-rdoc
